@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@media screen and (max-width: 1480px);
+ {
+}
+
+@media screen and (max-width: 768px) {
+  /* 레이아웃 */
+  html {
+    font-size: 7px;
+  }
+  .wrap {
+    width: 92%;
+  }
+
+  /* header */
+  header {
+    height: 62px;
+  }
+
+  header ul {
+    display: none;
+  }
+
+  header .orangebtn {
+    display: none;
+  }
+
+  header .white,
+  header .black {
+    max-width: 122px;
+  }
+
+  /* main */
+  main .title.l {
+    position: absolute;
+    left: 0;
+    top: 70%;
+  }
+}
