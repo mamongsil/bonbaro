@@ -751,17 +751,14 @@ Review 섹션
 /* ============================
    faq 섹션
 ============================ */
-.faq {
-  padding: 16rem 0 0 0;
-}
 
 .faq .wrap {
   display: flex;
   flex-direction: column;
+  gap: 20rem;
 }
 
 .faq .contentbox {
-  height: calc(var(--vh) * 100);
   display: flex;
   gap: 24.8rem;
   justify-content: center;
