@@ -2,12 +2,17 @@
 
 @media screen and (max-width: 1480px);
  {
+  html {
+    font-size: 8px;
+    overflow-x: hidden;
+  }
 }
 
 @media screen and (max-width: 768px) {
   /* 레이아웃 */
   html {
     font-size: 7px;
+    overflow-x: hidden;
   }
   .wrap {
     width: 92%;
@@ -22,19 +27,208 @@
     display: none;
   }
 
-  header .orangebtn {
-    display: none;
-  }
-
   header .white,
   header .black {
-    max-width: 122px;
+    max-width: 120px;
   }
 
   /* main */
+  main h2,
+  main p {
+    white-space: nowrap;
+  }
+
   main .title.l {
+    top: 40%;
+  }
+
+  /* introduce */
+  .introduce .btn {
+    display: none;
+  }
+
+  .introduce .profile {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .introduce .profile img {
+    margin-left: 0;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .introduce .profile .text_box {
+    padding: 7rem 0;
+  }
+
+  /* problem */
+  .problem .slidegroup {
+    gap: 20rem;
+    padding: 10rem 15rem;
+    margin-left: 0;
+  }
+
+  .problem .slidebox p::before {
+    width: 17px;
+    height: 17px;
+  }
+
+  .problem picture {
+    width: 100%;
+    max-width: 94%;
+  }
+
+  /* differentiation */
+  .differentiation .cardbox {
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .differentiation .card {
+    width: 100%;
+    height: 260px;
+    padding-bottom: 8.5rem;
+  }
+
+  .differentiation .card img {
     position: absolute;
-    left: 0;
-    top: 70%;
+    top: 30%;
+    max-width: 12rem;
+  }
+
+  /* method */
+  .method .pc {
+    display: none;
+  }
+
+  .method.dark .wrap {
+    flex-direction: column;
+  }
+
+  .method.dark .btnbox {
+    white-space: nowrap;
+  }
+
+  .method.dark .six {
+    padding: 2rem 1.5rem;
+  }
+
+  .method.dark .six img {
+    max-width: 7rem;
+  }
+
+  .method.dark .rightbox {
+    margin-left: 0;
+    margin-top: 5rem;
+  }
+
+  .method.dark .topbox {
+    margin-bottom: 3rem;
+  }
+
+  /* method */
+  .graph.dark .mo {
+    display: block;
+  }
+
+  .graph.dark .wrap {
+    flex-direction: column;
+  }
+
+  .graph.dark .rightbox {
+    margin-left: 0;
+    justify-content: center;
+    text-align: center;
+    gap: 85px;
+  }
+
+  .graph.dark .rightbox .ani::after {
+    width: 15px;
+    height: 15px;
+  }
+
+  .graph.dark .rightbox .ani {
+    top: 30%;
+  }
+
+  .graph.dark .maskbox {
+    height: 400px;
+  }
+
+  .graph.dark .rightbox .ani {
+    left: -180%;
+  }
+
+  /* solution */
+
+  .solution .pc {
+    display: none;
+  }
+
+  .solution .title {
+    margin-bottom: 1rem;
+  }
+
+  .solution .downgroup {
+    border: none;
+  }
+
+  .solution .button {
+    display: none;
+  }
+
+  .solution .downbox {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .solution .leftbox {
+    margin-left: 0rem;
+    margin-top: 6rem;
+    width: 100%;
+  }
+
+  .solution .underline {
+    height: auto;
+    background-color: transparent;
+  }
+
+  .solution .underline .indicator {
+    display: none;
+  }
+
+  .solution .underline-dots {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  .solution .underline-dots li {
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+  }
+
+  .solution .underline-dots li.active {
+    background-color: var(--main);
+  }
+
+  .solution .topbox img {
+    max-width: 19px;
+  }
+
+  .solution .downbox img {
+    width: 100%;
+    height: auto;
+    max-width: 72rem;
+    display: none;
+    transition: 0.3s ease;
   }
 }

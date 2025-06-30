@@ -89,7 +89,7 @@ main h5 {
 }
 
 main h2 {
-  font-size: clamp(24px, 3vw, 48px);
+  font-size: clamp(28px, 3vw, 48px);
   margin-bottom: 4.8rem;
 }
 
@@ -121,6 +121,7 @@ main p {
   position: relative;
   margin-top: 10rem;
   width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -237,8 +238,8 @@ main p {
   left: 12rem;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   background: #fef5ec;
 }
 
@@ -456,10 +457,14 @@ main p {
   align-items: flex-end;
 }
 
+.graph.dark .stick2 {
+  position: relative;
+}
+
 .graph.dark .rightbox .ani {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -140%;
   background-color: var(--main);
   font-size: clamp(14px, 2rem, 17px);
   font-weight: 500;
@@ -494,7 +499,6 @@ main p {
 
 .graph.dark .stick,
 .stick2 {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -518,6 +522,10 @@ main p {
   max-width: 15.2rem;
   width: 100%;
   height: auto;
+}
+
+.graph.dark .mo {
+  display: none;
 }
 
 /* ============================
@@ -603,6 +611,10 @@ main p {
   transition: left 0.3s ease, width 0.3s ease;
   left: 0;
   width: 25%;
+}
+
+.solution .underline-dots {
+  display: none;
 }
 
 .solution .leftbox {

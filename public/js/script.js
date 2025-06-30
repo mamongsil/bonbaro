@@ -193,47 +193,80 @@ document.addEventListener("DOMContentLoaded", () => {
   const contents = document.querySelectorAll(".solution .leftbox");
   const images = document.querySelectorAll(".solution .rightbox img");
   const indicator = document.querySelector(".solution .indicator");
+  const dots = document.querySelectorAll(".underline-dots li");
+  const downbox = document.querySelector(".solution .downbox");
 
+  let currentIndex = 0;
+
+  // 공통 탭 활성화 함수
+  function activateTab(index) {
+    const target = buttons[index].dataset.tab;
+
+    // 버튼 active 처리
+    buttons.forEach((b) => b.classList.remove("active"));
+    buttons[index].classList.add("active");
+
+    // 텍스트 show/hide
+    contents.forEach((box) => {
+      box.style.display = box.dataset.tab === target ? "flex" : "none";
+    });
+
+    // 이미지 show/hide
+    images.forEach((img) => {
+      img.style.display = img.dataset.tab === target ? "block" : "none";
+    });
+
+    // 인디케이터 위치 이동
+    if (indicator) {
+      const buttonWidth = 100 / buttons.length;
+      indicator.style.left = `${buttonWidth * index}%`;
+      indicator.style.width = `${buttonWidth}%`;
+    }
+
+    // 불릿 active 처리
+    dots.forEach((dot) => dot.classList.remove("active"));
+    if (dots[index]) dots[index].classList.add("active");
+
+    // 현재 인덱스 저장
+    currentIndex = index;
+  }
+
+  // 초기 상태 세팅
+  activateTab(0);
+
+  // 버튼 클릭 이벤트
   buttons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      const target = btn.dataset.tab;
-
-      // 버튼 클래스 처리
-      buttons.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      // 텍스트 컨텐츠 처리
-      contents.forEach((box) => {
-        box.style.display = box.dataset.tab === target ? "flex" : "none";
-      });
-
-      // 이미지 처리
-      images.forEach((img) => {
-        img.style.display = img.dataset.tab === target ? "block" : "none";
-      });
-
-      // indicator 위치 이동
-      if (indicator) {
-        const buttonWidth = 100 / buttons.length;
-        indicator.style.left = `${buttonWidth * index}%`;
-        indicator.style.width = `${buttonWidth}%`;
-      }
+      activateTab(index);
     });
   });
 
-  // 초기 세팅
-  contents.forEach((box, i) => {
-    box.style.display = i === 0 ? "flex" : "none";
-  });
-  images.forEach((img, i) => {
-    img.style.display = i === 0 ? "block" : "none";
+  // 불릿 클릭 이벤트
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      activateTab(index);
+    });
   });
 
-  if (indicator) {
-    const buttonWidth = 100 / buttons.length;
-    indicator.style.width = `${buttonWidth}%`;
-    indicator.style.left = "0%";
-  }
+  // 모바일 터치 슬라이드 이벤트
+  let startX = 0;
+
+  downbox.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  downbox.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentIndex < buttons.length - 1) {
+        activateTab(currentIndex + 1);
+      } else if (diff < 0 && currentIndex > 0) {
+        activateTab(currentIndex - 1);
+      }
+    }
+  });
 
   // ✅ 리뷰 Swiper
   const swiperReview = new Swiper(".review_slide", {
